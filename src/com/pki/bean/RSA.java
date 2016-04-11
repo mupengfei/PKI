@@ -7,6 +7,7 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -58,8 +59,12 @@ public class RSA {
 		Map<String, String> map = new HashMap<String, String>();
 		try {
 			KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
+			//按照指定字符串生成密钥对
+//			SecureRandom secureRandom = new SecureRandom("YXYBB".getBytes());
+//			keyPairGen.initialize(1024, secureRandom);
+			
+			
 			keyPairGen.initialize(1024);
-
 			KeyPair keyPair = keyPairGen.generateKeyPair();
 			// 公钥
 			RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
